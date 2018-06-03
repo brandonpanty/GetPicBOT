@@ -70,7 +70,7 @@ function callback(error, response, body) {
                                         "uri": "http://example.com/page/111"
                                     }
                                 ]
-                              },
+                              }/*,
                               {
                                 "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
                                 "imageBackgroundColor": "#000000",
@@ -98,7 +98,7 @@ function callback(error, response, body) {
                                         "uri": "http://example.com/page/222"
                                     }
                                 ]
-                              }
+                              }*/
                           ],
                           "imageAspectRatio": "rectangle",
                           "imageSize": "cover"
