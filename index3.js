@@ -196,17 +196,23 @@ bot.on('message', function (event) {
                 console.log(JSON.stringify(row));
                 if (bExist == "0") {
                     console.log("新增一筆資料");
-                    client.query(
+                    const client7 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+                    client7.connect();
+                    client7.query(
                         'INSERT into public.users_daily_record (user_id, get_date, get_times) VALUES($1, $2, $3) ',
                         [event.source.userId + "-" + iMonth + "-" + iDay, new Date(), 1],
                         function (err1, result) {
                             if (err1) throw err1;
+                            client7.end();
                         });
                 }
                 if (bExist == "1") {
                     console.log("更新一筆資料");
+                    const client8 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+                    client8.connect();
                     client.query("UPDATE public.users_daily_record SET get_times=get_times+1 WHERE user_id = '" + event.source.userId + "-" + iMonth + "-" + iDay + "'", (err2, res) => {
                         if (err2) throw err2;
+                        client8.end();
                     });
                 }
             }//End of for
@@ -226,3 +232,5 @@ var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
 });
+
+
