@@ -38,8 +38,21 @@ function callback(error, response, body) {
                 console.log('==>push ui:' + ui);
                 var imgLink = info.data[Math.floor(Math.random() * info.data.length)].link;
                 bot.push(ui, {
-                    type": "text",
-                   "text": "Hello, world"
+                            type: 'template',
+                            altText: 'this is a confirm template',
+                            template: {
+                                type: 'confirm',
+                                text: 'Are you sure?',
+                                actions: [{
+                                type: 'message',
+                                label: 'Yes',
+                                text: 'yes'
+                            }, {
+                                type: 'message',
+                                label: 'No',
+                                text: 'no'
+                            }]
+                        }
                 });
                                 console.log('\t==>push [' + imgLink+'] ok');
             }
