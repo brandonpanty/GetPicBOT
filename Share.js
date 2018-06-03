@@ -28,8 +28,8 @@ function callback(error, response, body) {
             connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
-        client.connect();
-  
+        
+        client.connect();  
         client.query("SELECT * FROM public.user_history_record WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err, res) => {
             if (err) throw err;
             console.log("(after callback) Push Image For Each User");
@@ -108,12 +108,13 @@ function callback(error, response, body) {
                 });
                                 console.log('\t==>push [' + imgLink+'] ok');
             }
-            //client.end();
+            client.end();
         });
         
+        client.connect();  
         client.query("UPDATE public.user_history_record SET ten='Yes' WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err2, res) => {
             if (err2) throw err2;
-            //client2.end();
+            client.end();
         });
         console.log('\t==>end callback');
     }
