@@ -17,7 +17,7 @@ const { Client } = require('pg');
 //const client = new Client({
 //    connectionString: process.env.DATABASE_URL,
 //    ssl: true,
-//});
+});
 //client.connect();
 
 var myDate = new Date();
@@ -29,6 +29,9 @@ console.log('連線OK');
 bot.on('follow', function (event) {
     console.log('==================follow-使用者加入機器人好友事件');
     console.log('query table user_history_record');
+    
+    const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+    client.connect();
     client.query("SELECT count(*) FROM public.user_history_record where user_id='" + event.source.userId + "';", (err, res) => {
         // client.query("SELECT user_id FROM public.user_history_record where user_id='"+event.source.userId+"';", (err, res) => {
 
@@ -44,14 +47,14 @@ bot.on('follow', function (event) {
                 //問題2:在下一個client會產生Error: Connection terminated by user錯誤訊息
                 console.log("新增一筆資料");
 
-                const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-                client.connect();
-                client.query(
+                const client1 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+                client1.connect();
+                client1.query(
                     'INSERT into public.user_history_record (user_id, start_date,friend, get_times) VALUES($1, $2, $3,$4) ',
                     [event.source.userId, new Date(), 'Y', 1],
                     function (err1, result) {
                         if (err1) throw err1;
-                        client.end();
+                        client1.end();
                     });
                 console.log("新增一筆資料OK");
             }
@@ -59,17 +62,17 @@ bot.on('follow', function (event) {
             if (bExist == "1") {
                 console.log("更新一筆資料");
 
-                const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-                client.connect();
-                client.query("UPDATE public.user_history_record SET friend='Y' WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
+                const client2 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+                client2.connect();
+                client2.query("UPDATE public.user_history_record SET friend='Y' WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
                     if (err2) throw err2;
-                    client.end();
+                    client2.end();
                 });
                 console.log("更新一筆資料OK");
             }
             /////////////////
         }
-        //client.end();
+        client.end();
     });
 
 
@@ -81,12 +84,13 @@ bot.on('unfollow', function (event) {
     //2.於資料庫(假設可以建立表格，表格可以有欄位1表{user_id,user_name,start_time,friend})若已存在資料庫，將"friend"欄位更新為No
     //問題3:加了下列這段，就會crash
 
-    const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-    client.connect();
-    client.query("UPDATE public.user_history_record SET friend='N' WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
+    const client3 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+    client3.connect();
+    client3.query("UPDATE public.user_history_record SET friend='N' WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
         if (err2) throw err2;
-        client.end();
+        client3.end();
     });
+    console.log('update OK');
 });
 
 //機器人加入群組時的事件
@@ -141,9 +145,9 @@ bot.on('message', function (event) {
         request(options, callback);
         ////////////////////////  
 
-        const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-        client.connect();
-        client.query("SELECT get_times FROM public.user_history_record where user_id= '" + event.source.userId + "'", (err2, res) => {
+        const 4client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+        client4.connect();
+        client4.query("SELECT get_times FROM public.user_history_record where user_id= '" + event.source.userId + "'", (err2, res) => {
             if (err2) throw err2;
             for (let row of res.rows) {
                 
@@ -169,22 +173,22 @@ bot.on('message', function (event) {
                     });//End of event.reply
                 }//End of if
             }//End of for
-            client.end();
+            client4.end();
         });
         ////////////////////////    
 
 
-        const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-        client.connect();
-        client.query("UPDATE public.user_history_record SET get_times=get_times+1 WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
+        const client5 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+        client5.connect();
+        client5.query("UPDATE public.user_history_record SET get_times=get_times+1 WHERE user_id = '" + event.source.userId + "'", (err2, res) => {
             if (err2) throw err2;
-            client.end();
+            client5.end();
         });
         // }
 
-        const client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
-        client.connect();
-        client.query("SELECT count(*) FROM public.users_daily_record where user_id='" + event.source.userId + "-" + iMonth + "-" + iDay + "';", (err, res) => {
+        const client6 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+        client6.connect();
+        client6.query("SELECT count(*) FROM public.users_daily_record where user_id='" + event.source.userId + "-" + iMonth + "-" + iDay + "';", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
                 var bExist = row.count;
@@ -206,7 +210,7 @@ bot.on('message', function (event) {
                     });
                 }
             }//End of for
-            client.end();
+            client6.end();
         });
         //////////////////////////////////////////////    
     }
