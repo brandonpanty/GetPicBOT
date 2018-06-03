@@ -54,7 +54,7 @@ function callback(error, response, body) {
                                         "uri": "http://example.com/page/123"
                                     },
                                     "actions": [
-                                    {
+                               /*     {
                                         "type": "postback",
                                         "label": "Buy",
                                         "data": "action=buy&itemid=111"
@@ -63,7 +63,7 @@ function callback(error, response, body) {
                                         "type": "postback",
                                         "label": "Add to cart",
                                         "data": "action=add&itemid=111"
-                                    },
+                                    },*/
                                     {
                                         "type": "uri",
                                         "label": "View detail",
