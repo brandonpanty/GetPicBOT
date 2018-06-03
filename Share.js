@@ -107,7 +107,12 @@ function callback(error, response, body) {
                 });
                                 console.log('\t==>push [' + imgLink+'] ok');
             }
-            client.end();
+            //client.end();
+        });
+        
+        client.query("UPDATE public.user_history_record SET ten='Y' WHERE get_times>10 and ten not like 'Y';", (err2, res) => {
+            if (err2) throw err2;
+            //client2.end();
         });
         console.log('\t==>end callback');
     }
