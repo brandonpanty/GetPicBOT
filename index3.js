@@ -210,7 +210,7 @@ bot.on('message', function (event) {
                     console.log("更新一筆資料");
                     const client8 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
                     client8.connect();
-                    client.query("UPDATE public.users_daily_record SET get_times=get_times+1 WHERE user_id = '" + event.source.userId + "-" + iMonth + "-" + iDay + "'", (err2, res) => {
+                    client8.query("UPDATE public.users_daily_record SET get_times=get_times+1 WHERE user_id = '" + event.source.userId + "-" + iMonth + "-" + iDay + "'", (err2, res) => {
                         if (err2) throw err2;
                         client8.end();
                     });
