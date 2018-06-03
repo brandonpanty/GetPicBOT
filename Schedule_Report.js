@@ -81,7 +81,7 @@ var bot = linebot({
                                 "超過100次抽的人數:"+iCOUNT100+"人"+"\n"+      
                                 "    活躍用戶比率為:"+iCOUNT30/iFriend*100+"%"+"\n"+
                                 "    鐵粉比率為:"+iCOUNT100/iFriend*100+"%"+"\n"+
-                                "    幫忙分享次數請參考http://tw.yahoo.com";
+                                "    幫忙分享次數請參考https://bit.ly/2srm8Iz+";
                 bot.push(ME, {
                     type: 'text',
                     text: repMessage
