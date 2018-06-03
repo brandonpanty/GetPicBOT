@@ -47,10 +47,10 @@ function callback(error, response, body) {
                                 "type": "carousel",
                                 "columns": [
                                 {
-                                    "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+                                    "thumbnailImageUrl": "https://i.imgur.com/TNA2KQZ.png",
                                     "imageBackgroundColor": "#FFFFFF",
-                                    "title": "this is menu",
-                                    "text": "description",
+                                    "title": "分享卡",
+                                    "text": "抽卡超過30次，送你分享卡",
                                     "defaultAction": {
                                         "type": "uri",
                                         "label": "View detail",
@@ -69,7 +69,7 @@ function callback(error, response, body) {
                                     },*/
                                     {
                                         "type": "uri",
-                                        "label": "View detail",
+                                        "label": "分享",
                                         //"uri": "http://line.naver.jp/R/msg/text/?test%20message%0D%0Ahttp%3A%2F%2Fline.me/R/ti/p/%40vqt1073d"
                                         "uri": "https://bit.ly/2srm8Iz"
                                     }
