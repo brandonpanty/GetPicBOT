@@ -30,7 +30,7 @@ function callback(error, response, body) {
         });
         client.connect();
   
-        client.query("SELECT user_id FROM public.user_history_record where get_times>10 and ten not like 'Y';", (err, res) => {
+        client.query("SELECT * FROM public.user_history_record WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err, res) => {
             if (err) throw err;
             console.log("(after callback) Push Image For Each User");
             for (let row of res.rows) {
@@ -111,7 +111,7 @@ function callback(error, response, body) {
             //client.end();
         });
         
-        client.query("UPDATE public.user_history_record SET ten='Y' WHERE get_times>10 and ten not like 'Y';", (err2, res) => {
+        client.query("UPDATE public.user_history_record SET ten='Yes' WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err2, res) => {
             if (err2) throw err2;
             //client2.end();
         });
