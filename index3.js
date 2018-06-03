@@ -145,7 +145,7 @@ bot.on('message', function (event) {
         request(options, callback);
         ////////////////////////  
 
-        const 4client = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
+        const client4 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
         client4.connect();
         client4.query("SELECT get_times FROM public.user_history_record where user_id= '" + event.source.userId + "'", (err2, res) => {
             if (err2) throw err2;
