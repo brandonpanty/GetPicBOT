@@ -30,9 +30,8 @@ function callback(error, response, body) {
         });
         
         client.connect();  
-        //client.query("SELECT * FROM public.user_history_record WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err, res) => {
-        client.query("SELECT * FROM public.user_history_record;", (err, res) => {
-            
+        client.query("SELECT * FROM public.user_history_record WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err, res) => {
+           
         if (err) throw err;
             console.log("(after callback) Push Image For Each User");
             for (let row of res.rows) {
