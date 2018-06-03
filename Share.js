@@ -69,7 +69,7 @@ function callback(error, response, body) {
                                         "type": "uri",
                                         "label": "View detail",
                                         //"uri": "http://line.naver.jp/R/msg/text/?test%20message%0D%0Ahttp%3A%2F%2Fline.me/R/ti/p/%40vqt1073d"
-                                        "uri": "https://bit.ly/2srm8Iz+"
+                                        "uri": "https://bit.ly/2srm8Iz"
                                     }
                                 ]
                               }/*,
