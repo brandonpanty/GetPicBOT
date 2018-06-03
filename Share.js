@@ -38,7 +38,8 @@ function callback(error, response, body) {
                 console.log('==>push ui:' + ui);
                 var imgLink = info.data[Math.floor(Math.random() * info.data.length)].link;
                 bot.push(ui, {
-                    
+                    type": "text",
+                   "text": "Hello, world"
                 });
                                 console.log('\t==>push [' + imgLink+'] ok');
             }
