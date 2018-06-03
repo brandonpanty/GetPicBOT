@@ -74,13 +74,13 @@ var bot = linebot({
             for (let row of res.rows) {
                 iFriend=row.count;
                 repMessage=     "            當日活躍人數:"+iGetUserToday+"人"+"\n"+
-                                "       當日抽的總次數:"+iSumToday+"次"+"\n"+
-                                "               抽的總次數:"+iSUM+"次"+"\n"+
-                                "          目前訂閱人數:"+iFriend+"人"+"\n"+
+                                "        當日抽的總次數:"+iSumToday+"次"+"\n"+
+                                "                抽的總次數:"+iSUM+"次"+"\n"+
+                                "            目前訂閱人數:"+iFriend+"人"+"\n"+
                                 "超過  30次抽的人數:"+iCOUNT30+"人"+"\n"+
                                 "超過100次抽的人數:"+iCOUNT100+"人"+"\n"+      
-                                "     活躍用戶比率為:"+Math.round(iCOUNT30/iFriend*10000)/100+"%"+"\n"+
-                                "           鐵粉比率為:"+iCOUNT100/iFriend*100+"%"+"\n"+
+                                "       活躍用戶比率為:"+Math.round(iCOUNT30/iFriend*10000)/100+"%"+"\n"+
+                                "              鐵粉比率為:"+iCOUNT100/iFriend*100+"%"+"\n"+
                                 " 幫忙分享次數請連結:"+"\n"+
                                 "       https://bit.ly/2srm8Iz+";
                 bot.push(ME, {
