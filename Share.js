@@ -111,10 +111,14 @@ function callback(error, response, body) {
             client.end();
         });
         
-        client.connect();  
-        client.query("UPDATE public.user_history_record SET ten='Yes' WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err2, res) => {
+        const client2 = new Client({
+            connectionString: process.env.DATABASE_URL,
+            ssl: true,
+        });
+        client2.connect();  
+        client2.query("UPDATE public.user_history_record SET ten='Yes' WHERE get_times>10 and (ten not like 'Yes' or ten is null);", (err2, res) => {
             if (err2) throw err2;
-            client.end();
+            client2.end();
         });
         console.log('\t==>end callback');
     }
