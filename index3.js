@@ -21,6 +21,7 @@ const { Client } = require('pg');
 //client.connect();
 
 var myDate = new Date();
+console.log('new Date():'+new Date());
 var iMonth = myDate.getMonth(); //?取?前月份(0-11,0代表1月)
 var iDay = myDate.getDate(); //?取?前日(1-31)
 console.log('連線OK');
