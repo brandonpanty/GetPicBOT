@@ -124,6 +124,7 @@ bot.on('message', function (event) {
     console.log('==================');
     if (event.message.text == '抽') {
         ////////////////////////
+        console.log('new Date():'+new Date());
         console.log('取得相簿裡的所有照片');
         var request = require('request');
         var options = {
