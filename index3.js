@@ -129,6 +129,7 @@ bot.on('message', function (event) {
         var request = require('request');
         var options = {
             url: 'https://api.imgur.com/3/album/BJNxWqK/images',
+            X-Mashape-Key: '8Wp006g50fmsh6PtDtiuQiO5nOIIp1o4P4kjsnuYq45yJzVNIw',
             headers: { 'Authorization': 'Client-ID c5059e019ff8903' }
         };
         function callback(error, response, body) {
