@@ -139,7 +139,7 @@ bot.on('message', function (event) {
        // function callback(error, response, body) {
        //     if (!error && response.statusCode == 200) {
        //         var info = JSON.parse(body);
-                console.log(info.data[Math.floor(Math.random() * info.data.length)].link);
+                //console.log(info.data[Math.floor(Math.random() * info.data.length)].link);
                 console.log('傳遞卡片');
                 //需要再加入隨機功能
                 event.reply({
