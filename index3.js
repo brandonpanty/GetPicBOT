@@ -147,7 +147,7 @@ bot.on('message', function (event) {
 //                   https://imgur.com/1i2DQft
                   //    "originalContentUrl": info.data[Math.floor(Math.random() * info.data.length)].link,
                     "originalContentUrl": 'https://imgur.com/1i2DQft',
-                    "originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
+                    //"originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
                    //   "previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
                     //"previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
                     "previewImageUrl": 'https://imgur.com/1i2DQft'
