@@ -136,9 +136,9 @@ bot.on('message', function (event) {
             'Authorization': 'Client-ID fae107e7473c25f'
         }
         };
-        function callback(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                var info = JSON.parse(body);
+       // function callback(error, response, body) {
+       //     if (!error && response.statusCode == 200) {
+       //         var info = JSON.parse(body);
                 //console.log(info.data[Math.floor(Math.random() * info.data.length)].link);
                 console.log('傳遞卡片');
                 //需要再加入隨機功能
@@ -150,9 +150,9 @@ bot.on('message', function (event) {
                     //"previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
                     "previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
                 });
-            }
-        }
-        request(options, callback);
+       //     }
+       // }
+       // request(options, callback);
         ////////////////////////  
 
         const client4 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
