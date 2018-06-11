@@ -136,7 +136,7 @@ bot.on('message', function (event) {
             'Authorization': 'Client-ID fae107e7473c25f'
         }
         };
-        
+        const imgur = require('imgur-node');
         imgur.album.get('fae107e7473c25f', 'GetPicBOT', (err, res) => {
             if (err) console.error(err);
             console.log(res);
