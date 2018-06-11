@@ -6,8 +6,8 @@ console.log('測試PostgreSQL');
 
 var bot = linebot({
     channelId: '1585073032',
-    channelSecret: '0af678b6490a7452cd453250d9bd6998',
-    channelAccessToken: 'IOHrMu7KzhjGMinqIDTpoXrxN/NlHFzF3ni7SYAAjN0SShmin7XW/5omFuSGq4tJuTvIdMstBWVpfADfORx7cT0/97Tkx5lmHY2z+77az/1hXYQfRCJGGUbOlSg15drJNNaojTkOSK3bU982zARsZQdB04t89/1O/w1cDnyilFU='
+    channelSecret: '0280477c35c67b960eb6121ca5ea787f',
+    channelAccessToken: 'x1Vd/lDAxnEJaEh34am/zfVEjcFXTx1nX2ixBGwMd1TR5Li3jSpHUDDU8iH4npyvuTvIdMstBWVpfADfORx7cT0/97Tkx5lmHY2z+77az/1drtJ242U2GOj++hgT0CND2pdBXEUK3mdOw9RmdnCM0QdB04t89/1O/w1cDnyilFU='
 });
 
 
