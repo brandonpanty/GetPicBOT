@@ -130,8 +130,11 @@ bot.on('message', function (event) {
         var options = {
             //url: 'https://api.imgur.com/3/album/BJNxWqK/images',
             url: 'https://imgur-apiv3.p.mashape.com/3/image/',
-            X-Mashape-Key: '8Wp006g50fmsh6PtDtiuQiO5nOIIp1o4P4kjsnuYq45yJzVNIw',
-            headers: { 'Authorization': 'Client-ID fae107e7473c25f' }
+            
+            headers: { 
+            'X-Mashape-Key': '8Wp006g50fmsh6PtDtiuQiO5nOIIp1o4P4kjsnuYq45yJzVNIw',
+            'Authorization': 'Client-ID fae107e7473c25f'
+        }
         };
         function callback(error, response, body) {
             if (!error && response.statusCode == 200) {
