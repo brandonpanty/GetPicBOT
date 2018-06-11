@@ -145,10 +145,10 @@ bot.on('message', function (event) {
                 event.reply({
                     "type": "image",
 //                    https://imgur.com/1i2DQft
-                    "originalContentUrl": info.data[Math.floor(Math.random() * info.data.length)].link,
-                    //"originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
-                    "previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
-                    //"previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
+                    //"originalContentUrl": info.data[Math.floor(Math.random() * info.data.length)].link,
+                    "originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
+                    //"previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
+                    "previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
                 });
        //     }
        // }
