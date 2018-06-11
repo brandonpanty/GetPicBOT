@@ -136,6 +136,11 @@ bot.on('message', function (event) {
             'Authorization': 'Client-ID fae107e7473c25f'
         }
         };
+        
+        imgur.album.get('fae107e7473c25f', 'GetPicBOT', (err, res) => {
+            if (err) console.error(err);
+            console.log(res);
+        });
        // function callback(error, response, body) {
        //     if (!error && response.statusCode == 200) {
        //         var info = JSON.parse(body);
