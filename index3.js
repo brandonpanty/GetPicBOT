@@ -129,8 +129,8 @@ bot.on('message', function (event) {
         var request = require('request');
         var options = {
             //url: 'https://api.imgur.com/3/album/BJNxWqK/images',
-            url: 'https://imgur-apiv3.p.mashape.com/3/image/',
-            
+           // url: 'https://imgur-apiv3.p.mashape.com/3/image/',
+            url:'https://imgur-apiv3.p.mashape.com/3/account/brandonpantw/images/ids'',
             headers: { 
             'X-Mashape-Key': '8Wp006g50fmsh6PtDtiuQiO5nOIIp1o4P4kjsnuYq45yJzVNIw',
             'Authorization': 'Client-ID fae107e7473c25f'
