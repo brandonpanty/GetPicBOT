@@ -129,32 +129,32 @@ bot.on('message', function (event) {
         var request = require('request');
         var options = {
             //url: 'https://api.imgur.com/3/album/BJNxWqK/images',
-            url: 'https://imgur-apiv3.p.mashape.com/3/image/',
+            url: 'https://imgur-apiv3.p.mashape.com/3/album/5yioSRQ/images',
            // url:'https://imgur-apiv3.p.mashape.com/3/account/brandonpantw/images/ids'',
             headers: { 
             'X-Mashape-Key': '8Wp006g50fmsh6PtDtiuQiO5nOIIp1o4P4kjsnuYq45yJzVNIw',
             'Authorization': 'Client-ID fae107e7473c25f'
         }
         };
-               // function callback(error, response, body) {
-       //     if (!error && response.statusCode == 200) {
-       //         var info = JSON.parse(body);
-       //         console.log(info.data[Math.floor(Math.random() * info.data.length)].link);
+                function callback(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                var info = JSON.parse(body);
+                console.log(info.data[Math.floor(Math.random() * info.data.length)].link);
                 console.log('傳遞卡片');
                 //需要再加入隨機功能
                 event.reply({
                     "type": "image",
 //                   https://imgur.com/1i2DQft
-                  //    "originalContentUrl": info.data[Math.floor(Math.random() * info.data.length)].link,
+                      "originalContentUrl": info.data[Math.floor(Math.random() * info.data.length)].link,
                     //"originalContentUrl": 'https://imgur.com/1i2DQft',
-                    "originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
-                   //   "previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
-                    "previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
+                  //  "originalContentUrl": 'https://i.imgur.com/Mki9oX3.jpg',
+                      "previewImageUrl": info.data[Math.floor(Math.random() * info.data.length)].link
+                   // "previewImageUrl": 'https://i.imgur.com/Mki9oX3.jpg'
                     //"previewImageUrl": 'https://imgur.com/1i2DQft'
                 });
-       //     }
-       // }
-       // request(options, callback);
+            }
+        }
+        request(options, callback);
         ////////////////////////  
 
         const client4 = new Client({ connectionString: process.env.DATABASE_URL, ssl: true, });
